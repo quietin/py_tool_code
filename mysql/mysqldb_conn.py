@@ -27,9 +27,9 @@ def fetch_all():
     cur.execute(sql, 'B')
     columns = cur.description
     # fill into a list with `dict` elements
-    result = [{columns[index][0]: column for index, column in enumerate(value)}
+    results = [{columns[index][0]: column for index, column in enumerate(value)}
               for value in cur.fetchall()]
-    # print result
+    # print results
 
 
 def fetch_one():
@@ -38,8 +38,8 @@ def fetch_one():
     columns = cur.description
     print columns
     one_tpl = cur.fetchone()
-    mm = {columns[k][0]: one_tpl[k] for k in xrange(len(columns))}
-    print mm
+    result = {columns[k][0]: one_tpl[k] for k in xrange(len(columns))}
+    print result
 
 
 def insert():
